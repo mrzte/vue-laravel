@@ -16,7 +16,7 @@
                                 <tr>
                                     <td>Universitas Padjadjaran</td>
                                     <td>Jln.Jatinangor</td>
-                                    <td>Maulana Sodiqin</td>
+                                    <td>{{this.form.name}}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -45,6 +45,19 @@
     export default {
         data: {
           Tampilkan: false
+        },
+        data() {
+            return {
+               profile:{},
+               form: new Form({
+                    name:'',
+                    kode:'',
+                   
+                    
+                   
+
+               })
+            }
         },
         data() {
             return {
@@ -258,6 +271,7 @@
              },
             loadPengguna(){
                 this.$Progress.start();
+                axios.get("api/profile").then(({data}) => (this.profile = data));
                 axios.get("api/pertanyaan2").then(({data}) => (this.pertanyaan = data));
                 axios.get("api/pilihan").then(({data}) => (this.pilihan = data));
                 axios.get("api/indikator2").then(({data}) => (this.indikator = data));

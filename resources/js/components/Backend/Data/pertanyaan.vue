@@ -329,7 +329,7 @@
                   reverseButtons: true
                 }).then((result) => {
                   if (result.value) {
-                    this.form.delete('/api/pertanyaan/'+id_pertanyaan).then(()=>{
+                    this.form.delete('/api/pertanyaan/'+id).then(()=>{
                       
                         swalWithBootstrapButtons.fire(
                       'Terhapus!',

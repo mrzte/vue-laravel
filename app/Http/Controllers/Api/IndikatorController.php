@@ -55,15 +55,15 @@ class IndikatorController extends Controller
      */
     public function store(Request $request)
     {
-        Indikator::updateOrCreate(
-            [
-                'id' => $request->id_indikator],
-                [
-                    'id_pilar' => $request->id_pilar, 
-                    'indikator' => $request->indikator
-                ]);        
-   
-        return response()->json(['success'=>'Product saved successfully.']);
+        $this->validate(
+            $request,
+              [
+              'indikator' => ['required', 'string', 'max:255','unique:indikator'],
+              'id_pilar' => ['required', 'integer', 'max:255'],
+              'definisi' => ['required','string','max:90'],
+              
+          ]);
+          return Indikator::create($request->all());
     }
 
     /**
@@ -98,20 +98,18 @@ class IndikatorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // $data = Indikator::findOrFail($id_indikator);
+        $data = Indikator::findOrFail($id);
         
-        // $this->validate($request,
-        // [
+        $this->validate($request,
+        [
     
-        //     'id_pilar' => 'sometimes',
-        //     'indikator' => 'sometimes',
-        //     'definisi' => 'sometimes',
-        //     .$data->id,
-            
-
-        // ]);
+            'indikator' => 'required|string|unique:indikator,indikator,'.$data->id,
+            'id_pilar' => 'required',
+            'definisi' => 'required|string|max:200|unique:indikator,definisi,'
+            .$data->id,
+        ]);
         
-        // $data->update($request->all());
+        $data->update($request->all());
     }
 
     /**
@@ -120,10 +118,10 @@ class IndikatorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id_indikator)
+    public function destroy($id)
     {
 
-        Indikator::find($id_indikator)->delete();
+        Indikator::findOrFail($id)->delete();
      
         return response()->json(['success'=>'Product deleted successfully.']);
     }

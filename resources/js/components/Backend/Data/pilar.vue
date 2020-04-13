@@ -25,7 +25,7 @@
                       <tr v-for="pilar in pilar" :key="pilar.id_pilar">
                       <td>{{pilar.id_pilar}}</td>
                       <td>{{pilar.pilar}}</td>
-                      <td width="300px">{{pilar.deskripsi}}</td>
+                      <td heigth="30px">{{pilar.deskripsi}}</td>
                        <td style="width:75px;">
                             <button @click="editModal(pilar)" class="btn alert-primary">
                                 <i class="fas fa-edit">
@@ -76,13 +76,7 @@
                          <form @submit.prevent="editmode ? updateUser() : buatPengguna() ">
                             <div class="modal-body">
                                 <div class="form-group">
-                                  <select v-model="form.id_pilar" name="pilar" id="pilar"
-                                   class="form-control" :class="{ 'is-invalid': form.errors.has('pilar') }">
-                                    <option value="">Pilih Pilar</option>
-                                    <option v-for="pilar in pilar" v-bind:key="pilar.id_pilar" :value="pilar.id_pilar">
-                                      {{pilar.pilar}}
-                                    </option>
-                                  </select>
+                                  <input v-model="form.pilar" placeholder="Masukan Pilar" class="form-control" type="text" name="pilar" id="pilar">
                                   <has-error :form="form" field="pilar"></has-error> 
                                 </div>
                                 <div class="form-group">

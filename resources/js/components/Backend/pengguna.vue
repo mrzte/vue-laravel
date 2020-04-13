@@ -142,7 +142,7 @@
                                </div>
                             </div>
                         <div class="modal-footer">
-                            <button t="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
                             <button v-show="editmode" type="submit" class="btn btn-success">Perbarui</button>
                             <button v-show="!editmode" type="submit" class="btn btn-primary">Tambah</button>
                         </div>

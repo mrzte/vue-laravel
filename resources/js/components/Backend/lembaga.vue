@@ -32,11 +32,11 @@
                   
                     <tr v-for="lembaga in lembaga.data" v-bind:key="lembaga.id">
                       <td>{{lembaga.id}}</td>
-                      <td>{{lembaga.kode}}</td>
-                      <td>{{lembaga.nama}}</td>
+                      <td width="30px">{{lembaga.kode}}</td>
+                      <td width="30px">{{lembaga.nama}}</td>
                       <td>{{lembaga.alamat}}</td>
                       <td>{{lembaga.email}}</td>
-                      <td>{{lembaga.phone}}</td>
+                      <td width="30px">{{lembaga.phone}}</td>
                       <!-- <td>{{lembaga.provinsi}}</td> -->
                       <!-- <td>{{lembaga.kota}}</td> -->
                       <!-- <td>{{lembaga.kode_pos}}</td> -->

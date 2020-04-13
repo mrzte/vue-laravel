@@ -18,6 +18,7 @@
                       <th>ID</th>
                       <th>Pilar</th>
                       <th>Indikator</th>
+                      <!-- <th>Definisi</th> -->
                       <th>Aksi</th>
                     </tr>
                   
@@ -26,6 +27,7 @@
                       <td>{{indikator.id_indikator}}</td>
                       <td>{{indikator.pilar}}</td>
                       <td>{{indikator.indikator}}</td>
+                      <!-- <td width="70px" height="100">{{indikator.definisi}}</td> -->
                        <td style="width:75px;">
                             <button @click="editModal(indikator)" class="btn alert-primary">
                                 <i class="fas fa-edit">
@@ -90,6 +92,13 @@
                                     placeholder="Masukan Nama Indikator"
                                     class="form-control" :class="{ 'is-invalid': form.errors.has('indikator') }">
                                     <has-error :form="form" field="indikator"></has-error>
+                               </div>
+                               <div class="form-group">
+                                    <textarea v-model="form.definisi" type="text" name="definisi"
+                                    placeholder="Masukan Definsi"
+                                    class="form-control" :class="{ 'is-invalid': form.errors.has('definisi') }">
+                                    </textarea>
+                                    <has-error :form="form" field="definisi"></has-error>
                                </div>
                           </div>
                         <div class="modal-footer">
@@ -186,7 +195,7 @@
                   reverseButtons: true
                 }).then((result) => {
                   if (result.value) {
-                    this.form.delete('/api/indikator/'+id_indikator).then(()=>{
+                    this.form.delete('/api/indikator/'+id).then(()=>{
                       
                         swalWithBootstrapButtons.fire(
                       'Terhapus!',

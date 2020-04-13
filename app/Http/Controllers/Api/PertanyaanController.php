@@ -122,6 +122,6 @@ class PertanyaanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Pertanyaan::findOrFail($id)->delete();
     }
 }
