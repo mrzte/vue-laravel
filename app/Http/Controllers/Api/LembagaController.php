@@ -25,13 +25,14 @@ class LembagaController extends Controller
     public function index()
     {
      
-    //     $data = Lembaga::join('kota', 'kota.id', '=', 'pdpt_detail.kota')
-    //    ->join('provinsi', 'provinsi.id', '=', 'kota.province_id')
-    //    ->select('pdpt_detail.*','provinsi.provinsi','kota.kota')
-    //    ->get();
-        $data2 = Provinsi::all();
-        $data = Lembaga::
-        select('pdpt_detail.*')->paginate(10);
+        $data = Lembaga::join('kota', 'kota.id', '=', 'pdpt_detail.kota')
+       ->join('provinsi', 'provinsi.id', '=', 'kota.province_id')
+       ->select('pdpt_detail.*','pdpt_detail.nama','provinsi.provinsi as propinsi','kota.kota','kota.id as id
+       _kota')
+       ->get();
+        // $data2 = Provinsi::all();
+        // $data = Lembaga::
+        // select('pdpt_detail.*')->paginate(10);
         return response()->json($data);
     }
 
@@ -100,7 +101,7 @@ class LembagaController extends Controller
             'kode' => 'required','integer','unique:users,kode,'.$user->id,
             'logo' => 'sometimes',
             // 'provinsi' => 'required|integer',
-            // 'kota' => 'required|integer',
+            'kota' => 'required',
 
         ]);
         

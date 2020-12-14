@@ -26,7 +26,8 @@ class UserController extends Controller
         // $user = User::with('lembaga')->select('*')->paginate(5);
         $user = User::join('pdpt_detail', 'pdpt_detail.kode', '=', 'users.kode')
        ->select('users.*','pdpt_detail.nama');
-       return Datatables::of($user)->make(true);
+       $data = User::all();
+       return response()->json($data);
         // return DataTables::of(User::query())->make(true);
         
     }

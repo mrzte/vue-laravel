@@ -10,7 +10,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>Mipt</title>
+  <title>Salasah</title>
   <!-- Theme style -->
   <link rel="stylesheet" href="/css/app.css">
   <!-- Google Font: Source Sans Pro -->
@@ -72,7 +72,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <a href="index3.html" class="brand-link">
       <img src="./img/logo/logo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light">M I P T</span>
+      <span class="brand-text font-weight-light">POS Salasah</span>
     </a>
 
     <!-- Sidebar -->
@@ -124,21 +124,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <a href="#" class="nav-link" active-class="active" exact>
               <i class="nav-icon fas fa-file-signature"></i>
               <p>
-                Kusioner
+                Pesanan
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <router-link to="/pengisian" class="nav-link" active-class="active" exact>
+                <router-link to="/offline" class="nav-link" active-class="active" exact>
                   <i class="fas fa-pen-square nav-icon"></i>
-                  <p>Pengisian Kusioner</p>
+                  <p>Pesanan Offline</p>
                 </router-link>
               </li>
               <li class="nav-item">
-                <router-link to="/verifikasi" class="nav-link" active-class="active" exact>
+                <router-link to="/online" class="nav-link" active-class="active" exact>
                   <i class="fas fa-tasks nav-icon"></i>
-                  <p>Verifikasi Kusioner</p>
+                  <p>Pesanan Online</p>
                 </router-link>
               </li>
               
@@ -161,9 +161,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </router-link>
               </li>
               <li class="nav-item ml-2">
-                <router-link to="/lembaga" tag="a" class="nav-link" active-class="active" exact>
+                <router-link to="/toko" tag="a" class="nav-link" active-class="active" exact>
                   <i class="fas fa-university nav-icon"></i>
-                  <p>Lembaga</p>
+                  <p>Toko</p>
                 </router-link>
               </li>
               <li class="nav-item ml-2">
@@ -174,6 +174,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </li>
             </ul>
           </li>
+          @endcan
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link" active-class="active" exact>
               <i class="nav-icon fas fa-database"></i>
@@ -184,20 +185,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item ml-2">
-                <router-link to="/pilar" tag="a" class="nav-link" active-class="active" exact>
+                <router-link to="/produk" tag="a" class="nav-link" active-class="active" exact>
                   <i class="fas fa-chart-bar nav-icon"></i>
-                  <p>Pilar</p>
+                  <p>Produk</p>
                 </router-link>
               </li>
               <li class="nav-item ml-2">
-                <router-link to="/indikator" class="nav-link" active-class="active" exact>
+                <router-link to="/reseller" class="nav-link" active-class="active" exact>
                   <i class="fas fa-chart-line nav-icon"></i>
-                  <p>Indikator</p>
+                  <p>Reseller</p>
                 </router-link>
               </li>
               <li class="nav-item ml-2">
                 <router-link to="/pertanyaan" tag="a" class="nav-link" active-class="active" exact>
-                  <i class="fas fa-question-circle nav-icon"></i>
+                  <i class="fas fa-inbox nav-icon"></i>
                   <p>Pertanyaan</p>
                 </router-link>
               </li>
@@ -227,7 +228,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
              
             </ul>
           </li>
-          @endcan
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

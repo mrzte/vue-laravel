@@ -80,16 +80,16 @@ Vue.use(VueProgressBar, options)
 
 let routes = [
     { path: '/dasbor', component:require('./components/Backend/dasbor.vue').default },
-    { path: '/lembaga', component:require('./components/Backend/lembaga.vue').default },
+    { path: '/toko', component:require('./components/Backend/toko.vue').default },
     { path: '/pengguna', component: require('./components/Backend/pengguna.vue').default },
     { path: '/provinsi', component: require('./components/Backend/Data/provinsi.vue').default },
     { path: '/kota', component: require('./components/Backend/Data/kota.vue').default },
-    { path: '/indikator', component: require('./components/Backend/Data/indikator.vue').default },
-    { path: '/pilar', component: require('./components/Backend/Data/pilar.vue').default },
+    { path: '/reseller', component: require('./components/Backend/Data/indikator.vue').default },
+    { path: '/produk', component: require('./components/Backend/Data/pilar.vue').default },
     { path: '/konten', component: require('./components/Backend/konten.vue').default },
     { path: '/developer', component: require('./components/Backend/developer.vue').default },
     { path: '/profil', component: require('./components/Backend/profil.vue').default},
-    { path: '/pengisian', component: require('./components/Backend/Kusioner/kusioner.vue').default},
+    { path: '/offline', component: require('./components/Backend/Pesanan/offline.vue').default},
     { path: '/pertanyaan', component: require('./components/Backend/Data/pertanyaan.vue').default },
     { path: '*', component: require('./components/Backend/tidakada.vue').default }
 ]
@@ -145,9 +145,9 @@ Vue.component('indi', require('./components/Backend/Data/indi.vue').default);
 Vue.component('profil-lembaga', require('./components/Backend/profil_lembaga.vue').default);
 Vue.component('user', require('./components/Backend/pengguna.vue').default );
 Vue.component('provinsi', require('./components/Backend/Data/option.vue').default );
-Vue.component('nomor1', require('./components/Backend/Kusioner/1.vue').default );
-Vue.component('nomor2', require('./components/Backend/Kusioner/2.vue').default );
-Vue.component('nomor3', require('./components/Backend/Kusioner/3.vue').default );
+// Vue.component('nomor1', require('./components/Backend/Kusioner/1.vue').default );
+// Vue.component('nomor2', require('./components/Backend/Kusioner/2.vue').default );
+// Vue.component('nomor3', require('./components/Backend/Kusioner/3.vue').default );
 
 window.Fire = new Vue();
 

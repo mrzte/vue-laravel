@@ -1,20 +1,24 @@
 <template>
-            <div class="container-fluid">
-             <div class="card mt-3" v-if="$gate.admin()">
-              <div class="card-header">
-                <h3 class="card-title">Manajemen Pengguna</h3>
-                <div class="card-tools">
-                    <button class="btn alert-primary" @click="newModal">
-                        Tambah Pengguna
-                        <i class="fas fa-user-plus">
-                        </i>
-                    </button>
+        <section>
+            <div class="content-header" v-if="$gate.admin()">
+              <div class="container-fluid">
+                  <div class="row mb-2">
+                    <div class="col-sm-6">
+                      <h1 class="m-0 text-dark">Manajemen Pengguna</h1>
+                    </div>
+                    <div class="col-sm-6">
+                      <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><router-link to="/">Halaman</router-link></li>
+                        <li class="breadcrumb-item active">Data Pengguna</li>
+                      </ol>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body table-responsive p-0">
-                <table class="table table-hover text-nowrap table-bordered table-striped table-solid">
-               <tbody>
+             <div class="card mt-3" >
+              <div class="card-body">
+                <button class="btn alert-primary mb-3" @click="newModal"> <i class="fas fa-plus"></i> Tambah Data Pengguna</button>
+                <table class="table table-hover table-bordered table-striped table-solid">
+                 <thead class="alert alert-primary">
                     <tr>
                       <th>ID</th>
                       <th>Nama</th>
@@ -22,12 +26,11 @@
                       <th>Surel</th>
                       <th>Nomor Telepon</th>
                       <th>Tipe</th>
-                      <th>Lembaga</th>
-             
+                      <th>Nama Toko</th>
                       <th>Aksi</th>
                     </tr>
-                  
-                  
+                  </thead>
+                  <tbody>
                     <tr v-for="user in users" :key="user.id">
                       <td>{{user.id}}</td>
                       <td>{{user.name}}</td>
@@ -36,8 +39,7 @@
                       <td>{{user.phone}}</td>
                       <td>{{user.level}}</td>
                       <td>{{user.nama}}</td>
-           
-                       <td style="width:75px;">
+                       <td width="177px">
                             <button @click="editModal(user)" class="btn alert-primary">
                                 <i class="fas fa-edit">
 
@@ -58,7 +60,7 @@
                     </tr>
                   </tbody>
                 </table>
-                <div class="card-footer">
+              <div class="card-footer">
                   <pagination :data="users" @pagination-change-page="getResults"></pagination>
                 </div>
               </div>
@@ -147,16 +149,16 @@
                             <button v-show="!editmode" type="submit" class="btn btn-primary">Tambah</button>
                         </div>
                         </form>
+                      </div>
                     </div>
+                  </div>
                 </div>
-           </div>
-      </div>
+              </div>
            <div v-if="!$gate.admin()">
              <tidak-ada></tidak-ada>
            </div>
-  </div>
+  </section>
 </template>
-
 <script>
     export default {
         data() {
@@ -186,13 +188,13 @@
           },
           updateUser(){
                this.$Progress.start();
-               this.form.put('api/users/'+this.form.id)
+               this.form.put('api/user/'+this.form.id)
                .then(()=>{
                 //succes
                 $('#addNew').modal('hide');
                 swalWithBootstrapButtons.fire(
                   'Berhasil!',
-                  'User Sudah Berhasil Diperbarui!.',
+                  'Pengguna Sudah Berhasil Diperbarui!.',
                   'success'
                     )
                 this.$Progress.finish();
@@ -201,7 +203,7 @@
                .catch(()=>{
                 //gagal
                 swalWithBootstrapButtons.fire(
-                  'User Gagal Diperbarui',
+                  'Pengguna Gagal Diperbarui',
                   'Silahkan Periksa Kembali.',
                   'error'
                     )
@@ -233,7 +235,7 @@
                   if (result.value) {
                     this.form.delete('/api/users/'+id).then(()=>{
                       
-                        swalWithBootstrapButtons.fire(
+                    swalWithBootstrapButtons.fire(
                       'Terhapus!',
                       'Pengguna Telah Terhapus!.',
                       'success'
@@ -299,7 +301,7 @@
               if(this.$gate.admin()){
 
                 this.$Progress.start();
-                axios.get("api/users").then(({data}) => (this.users = data.data));
+                axios.get("api/users").then(({data}) => (this.users = data));
                 
                 this.$Progress.finish();
               }

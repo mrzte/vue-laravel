@@ -1,21 +1,14 @@
 <template>
 <div class="row">
-    <!-- About Me Box -->
     <div class="col-md-3">
             <div class="card card-primary card-outline" >
-             
-              <!-- /.card-header -->
               <div class="card-body">
                 <div class="text-center">
                   <img class="profile-user-img img-fluid img-circle" :src="getProfileLogo()" alt="User profile picture">
                 </div>
-
                 <h3 class="profile-username text-center mt-2">{{this.form.nama}}</h3>
-
-               
-
                 <hr>
-                <strong><i class="fas fa-code mr-1"></i>Kode Lembaga</strong>
+                <strong><i class="fas fa-code mr-1"></i>Kode Toko</strong>
 
                 <p class="text-muted">
                   <span class="badge badge-primary">{{this.form.kode}}</span>
@@ -33,20 +26,15 @@
                  <p class="text-muted">
                   <span class="badge badge-primary">{{this.form.phone}}</span>
                 </p>
-                
-
-               
               </div>
-              <!-- /.card-body -->
             </div>
             </div>
-            <!-- /.card -->
-   <div class="col-md-9">
+             <div class="col-md-9">
                <div class="card card-primary card-outline">
                  <div class="card-header p-2"> 
                   <ul class="nav nav-pills">
-                  <li class="nav-item"><a class="nav-link active" href="#kusioner" data-toggle="tab">Data Lembaga</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#data-univ" data-toggle="tab">Edit Data Lembaga</a></li>
+                  <li class="nav-item"><a class="nav-link active" href="#kusioner" data-toggle="tab">Data Toko</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#data-univ" data-toggle="tab">Edit Data Toko</a></li>
                 </ul>
                  </div><!-- /.card-header --> 
               <div class="card-body">
@@ -59,7 +47,7 @@
                           <input disabled v-model="form.nama" type="name" class="form-control" id="nama" placeholder="Nama">
                         </div>
                       </div>                      <div class="form-group row">
-                        <label for="kode" class="col-sm-2 col-form-label">Kode Lembaga</label>
+                        <label for="kode" class="col-sm-2 col-form-label">Kode Toko</label>
                         <div class="col-sm-10">
                           <input disabled v-model="form.kode" class="form-control" id="kode" placeholder="Alamat">
                         </div>
@@ -96,28 +84,10 @@
                          </div>
                           <has-error :form="form" field="provinsi"></has-error> 
                         </div>
-                           <!-- <label>
-                              Logo                              
-                            </label>
-                      <div class="form-group row">
-                        <div class="offset-sm-2 col-sm-10">
-                          <div class="checkbox">
-                           
-                            <input @change="updateLogo" type="file" class="form-control-file">
-                          </div>
-                        </div>
-                      </div> -->
-                      <!-- <div class="form-group row">
-                        <div class="offset-sm-2 col-sm-10">
-                          <button type="submit" class="btn btn-danger">Submit</button>
-                        </div>
-                      </div> -->
-                  <!-- </form> -->
                   </div>
                   <div class="tab-pane" id="data-univ">
                   <form @submit.prevent="updateUser()">
                       <div class="form-group row">
-                        
                         <label for="inputName" class="col-sm-2 col-form-label">Nama</label>
                         <div class="col-sm-10">
                           <input v-model="form.nama" type="name" class="form-control" id="inputName" placeholder="Nama">
@@ -149,6 +119,7 @@
                           <has-error :form="form" field="provinsi"></has-error> 
                         </div>
                       <div class="form-group row">
+                       
                         <label for="kota" class="col-sm-2 col-form-label">Kota</label>
                          <div class="col-sm-10">
                           <select readonly disabled v-model="form.kota" name="kota" id="kota"
@@ -164,29 +135,25 @@
                         <label>
                           Logo                              
                         </label>
-                      <div class="form-group row">
-                        <div class="offset-sm-2 col-sm-10">
-                          <div class="checkbox">
-                           
-                            <input @change="updateLogo" type="file" class="form-control-file">
+                        <div class="form-group row">
+                          <div class="offset-sm-2 col-sm-10">
+                            <div class="checkbox">
+                              <input @change="updateLogo" type="file" class="form-control-file">
+                            </div>
                           </div>
                         </div>
-                      </div>
-                     
-                      <div class="form-group row">
-                        <div class="offset-sm-2 col-sm-10">
-                          <button type="submit" class="btn btn-danger">Submit</button>
+                        <div class="form-group row">
+                          <div class="offset-sm-2 col-sm-10">
+                            <button type="submit" class="btn btn-success">Perbarui Data Toko</button>
+                          </div>
                         </div>
-                      </div>
-                  </form>
+                      </form>
+                    </div>
+                   </div>
                   </div>
-                  <!-- /.tab-pane -->
-                </div>
-              </div>
-                <!-- /.tab-content -->
-              </div><!-- /.card-body -->  
-              </div>
-              </div>
+                </div>  
+             </div>
+          </div>
 </template>
 <script>
     export default {
