@@ -27,7 +27,7 @@
     "dependencies": {
         "@fortawesome/fontawesome": "^1.1.8",
         "admin-lte": "^3.0.2",
-        "chart.js": "^2.9.3",
+        "chart.js": "^2.9.4",
         "chartkick": "^3.2.0",
         "datatables.net-bs4": "^1.10.20",
         "datatables.net-editor": "^1.6.5",
